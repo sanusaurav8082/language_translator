@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('translator/', include('translator.urls')),
     path('', lambda request: redirect('translator/', permanent=True))
 ]

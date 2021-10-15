@@ -1,9 +1,9 @@
 window.onload = function(){
                     document.getElementById("translateHandler").addEventListener("click",async function(){
+                        document.getElementById("loader").style.display = "block";
                         let sourceLang = document.getElementById("sourceLang").value;
                         let targetLang = document.getElementById("targetLang").value;
                         let sourceText = document.getElementById("sourceText").value;
-                        console.log(sourceLang, targetLang, sourceText);
                         form ={
                             sl: sourceLang,
                             tl: targetLang,
@@ -30,8 +30,8 @@ window.onload = function(){
                             for(let word of words){
                             translations.push(word['trans']);
                             }
-                            console.log(translations);
                             document.getElementById("targetText").value = translations.join('');
+                            document.getElementById("loader").style.display = "none";
                         });
                     });
                 };
