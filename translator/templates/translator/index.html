@@ -1,0 +1,56 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title> Translate text</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="{% static 'translator/jquery-3.6.0.min.js' %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'translator/styles.css' %}">
+    <script src="{% static 'translator/translateUtils.js' %}"></script>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h1> Text Translator</h1>
+  <p>Translate your text from one language to another!</p>
+</div>
+<div class="container">
+    <div class="row">
+          <div class="col-sm-4">
+                <select id="sourceLang" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      {% for item in source_lang_list %}
+                        <option value="{{item.code}}">{{item.name}}</option>
+                      {% endfor %}
+                </select>
+              </div>
+            <div class="col-sm-8">
+                    <textarea id="sourceText" type="text" class="form-control" rows=5 id="sourceLangText" placeholder="Enter text"></textarea>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <button id="translateHandler" type="button" class="btn btn-primary button-margin">Translate</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <div class="row">
+          <div class="col-sm-4">
+                <select id="targetLang" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      {% for item in source_lang_list %}
+                        <option value="{{item.code}}">{{item.name}}</option>
+                      {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-8">
+                <textarea id="targetText" type="text" class="form-control" rows=5 id="targetLangText" placeholder="Translated text"></textarea>
+            </div>
+    </div>
+</div>
+</body>
+</html>
